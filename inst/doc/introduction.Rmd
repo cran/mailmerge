@@ -1,0 +1,33 @@
+---
+title: "Introduction to mailmerge"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to mailmerge}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+```
+
+
+
+```{r child="../man/fragments/intro_text.Rmd"}
+```
+
+
+```{r child="../man/fragments/intro_example.Rmd"}
+```
+
+<center>
+```{r, echo=FALSE}
+knitr::include_graphics("../man/figures/mail-merge.gif")
+```
+</center>
