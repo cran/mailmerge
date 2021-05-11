@@ -8,7 +8,10 @@
 #' [glue::glue_data()] function. The markdown can contain a yaml header for
 #' subject and cc line.
 #' 
-#' Note that only 'gmail' is supported at the moment, via [gmailr::gm_send_message]
+#' Note that only 'gmail' is supported at the moment, via [gmailr::gm_send_message].
+#' 
+#' Before using `mail_merge()`, you must be authenticated to the gmail service. 
+#' Use [gmailr::gm_auth()] to authenticate prior to starting the mail merge.
 #' 
 #'
 #' @param data A data frame or `tibble` with all the columns that should be
@@ -59,16 +62,31 @@ mail_merge <- function(data, message, to_col = "email", send = c("preview", "dra
   preview <- identical(send, "preview")
   draft   <- identical(send, "draft")
   
+  if (send != "preview" && !gmailr::gm_has_token()) {
+    stop(
+      "You must authenticate with gmailr first.  Use `gmailr::gm_auth()", 
+      call. = FALSE
+    )
+  }
+  
   if(nrow(data) == 0) {
     warning("nothing to email")
     return(invisible(data))
   }
-  if(is.null(data[[to_col]])) stop("'data' must contain an 'email' column, or specify a 'to_col'")
+  
+  if(is.null(data[[to_col]])) {
+    stop("'data' must contain an 'email' column, or specify a 'to_col'")
+  }
+  
   
   msg <- mm_read_message(message)
   
   if(!preview && !confirm) {
-    yesno("Send ", nrow(data), " emails?")
+    msg <- paste0("Send ", nrow(data), " emails (", send, ")?")
+    cat(msg)
+    if (yesno()) {
+      return(invisible())
+    }
   }
   
   z <- data %>%
@@ -88,25 +106,26 @@ mail_merge <- function(data, message, to_col = "email", send = c("preview", "dra
         do.call(mm_preview_mail, args)
       } else {
         Sys.sleep(sleep_send)
+          args <- append(args, list(draft = draft))
         if (draft) {
-          do.call(mm_send_draft, append(args, list(draft = TRUE)))
+          do.call(mm_send_draft, args)
         } else {
-          do.call(mm_send_mail, append(args, list(draft = FALSE)))
+          do.call(mm_send_mail, args)
         }
       }
     })
   
-  n_messages <- length(z)
   
   if (preview) {
     base::message("Sent preview to viewer")
     class(z) <- "mailmerge_preview"
     attr(z, "sleep") <- sleep_preview
   } else {
+    n_messages <- vapply(z, function(x) isTRUE(x$success), FUN.VALUE = logical(1)) %>% sum()
     if (draft) {
       base::message("Sent ", n_messages, " messages to your draft folder")
     } else {
-    base::message("Sent ", n_messages, " messages to email")
+      base::message("Sent ", n_messages, " messages to email")
     }
   }
   z

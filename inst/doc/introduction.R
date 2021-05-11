@@ -36,6 +36,12 @@ Me
 library(mailmerge)
 library(gmailr, quietly = TRUE, warn.conflicts = FALSE)
 
+if (interactive()) {
+  # Note: you should always authenticate. The 'interactive()` condition only 
+  # prevents execution on the CRAN servers
+  gm_auth()
+}
+
 ## ----mail-merge---------------------------------------------------------------
 dat %>% 
   mail_merge(msg)
