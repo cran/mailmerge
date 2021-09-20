@@ -1,6 +1,14 @@
+# mailmerge 0.2.2
+
+Bug fixes
+
+* Fix a bug that prevented interactive confirmation when sending mail 
+(@bcheggeseth, #10)
+
 # mailmerge 0.2.1
 
-* Throw error if not authenticated against gmail, and provide better setup instructions to use `gmailr::gm_auth()`, suggested by @maelle in #3
+* Throw error if not authenticated against gmail, and provide better setup
+instructions to use `gmailr::gm_auth()`, suggested by @maelle in #3
 
 # mailmerge 0.2.0
 
