@@ -1,6 +1,6 @@
 Package: mailmerge
 Title: Mail Merge Using R Markdown Documents and 'gmailr'
-Version: 0.2.4
+Version: 0.2.5
 Authors@R: 
     person(given = "Andrie",
            family = "de Vries",
@@ -24,12 +24,12 @@ Suggests: spelling, withr, covr, knitr, testthat (>= 2.1.0), here,
 VignetteBuilder: knitr
 RdMacros: lifecycle
 Encoding: UTF-8
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 Language: en-US
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2022-03-07 16:16:55 UTC; apdev
+Packaged: 2022-08-14 20:16:00 UTC; apdev
 Author: Andrie de Vries [aut, cre]
 Maintainer: Andrie de Vries <apdevries@gmail.com>
 Repository: CRAN
-Date/Publication: 2022-03-07 16:30:02 UTC
+Date/Publication: 2022-08-14 20:30:02 UTC

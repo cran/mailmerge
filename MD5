@@ -1,7 +1,7 @@
-3213f03d6bcd9c7cfe1c16bd58ae909d *DESCRIPTION
+06e3ddf3375fede22d08145571eaf3ce *DESCRIPTION
 07f29d5fe984fb17befeb6e965ad0ac8 *LICENSE
 0d54b60ecf5cac73c7258e33acead22b *NAMESPACE
-6cdf9e5a8c189ef1b02ca7a6220f9aaa *NEWS.md
+bdb5fcdaa183ce77e3065e7ca58640e6 *NEWS.md
 aef11405988cb66fa3739d2454aa59e5 *R/gadget.R
 2e1f76497d2f00df2157c9d9892549fb *R/googledocs.R
 f1d31836cbd7b927780a427da52e84ac *R/helpers.R
@@ -11,11 +11,11 @@ fe25686e0842b77b89b33c81f39c194f *R/parse_email.R
 cf794928715019cf81bd51d467156178 *R/utils-pipe.R
 c70f7f100aa551e9577f7123b69cc1bf *R/yesno.R
 da2d4947ae860043f683ab79d9d2539c *README.md
-3db128a1903d48edf86b2aec82faaacc *build/vignette.rds
+d1fe0a1b06b83cb0fa57f9aacaed3663 *build/vignette.rds
 a69a577275061cd30b8873d730fc8d1e *inst/WORDLIST
 2c91e3340715d733583423015c016504 *inst/doc/introduction.R
 9366736da6438a440fc7bae727232700 *inst/doc/introduction.Rmd
-e426b2a3adf73bafe42cc6c04587a1c3 *inst/doc/introduction.html
+922186724ca4194e9ccee8874b66da05 *inst/doc/introduction.html
 f233360eec84de26c61ad85e9332aaf7 *inst/examples/example_mail_merge.R
 b0da9b92ccd3c90a1166236aebd884cf *inst/examples/example_shiny_gadget.R
 cb1e46f469cfbbbde29c8b5113e1d789 *man/figures/lifecycle-archived.svg
@@ -36,7 +36,7 @@ ea89434f5e41aea91f1ccfa6573cbed3 *man/fragments/intro_example.html
 cf0ca42bd73952ee586d267ede8078f9 *man/fragments/intro_text.Rmd
 77e524b262d4bf54614ce430f1f83752 *man/in_viewer.Rd
 467790590edb3b7efbee92e9dc298a9b *man/mail_merge.Rd
-719ee0b38dd5c589170f54b0e51e52de *man/mailmerge-package.Rd
+c979ff95533d519de240515e444ca6f4 *man/mailmerge-package.Rd
 7697eecd7131365c93bd537159a5090a *man/mm_preview_mail.Rd
 35fe97bc3d4cf77e5742b7bbc8fca457 *man/mm_read_googledoc.Rd
 c0d9449123a9cafc404074a513e7dc9f *man/mm_read_message.Rd
